@@ -7,6 +7,8 @@ import "firebase/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import SignInButton from "./components/SignInButton";
+import SignOutButton from "./components/SignOutButton";
 
 firebase.initializeApp({
   apiKey: "AIzaSyBUXM_TkWWCnB506bXWA-qFLPweMVIddzY",
@@ -19,14 +21,16 @@ firebase.initializeApp({
   measurementId: "G-01WXFEE31L"
 });
 
-const auth = firebase.auth();
+export const auth = firebase.auth();
 const firestore = firebase.firestore();
-const [user] = useAuthState(auth);
 
 function App() {
+  const [user] = useAuthState(auth);
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        {user ? <SignOutButton /> : <SignInButton />}
+      </header>
       <section>{user ? <h1>Signed in</h1> : <h1>Not Signed In</h1>}</section>
     </div>
   );
