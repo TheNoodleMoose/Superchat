@@ -1,0 +1,21 @@
+.messageReceived {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.messageSent {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.avatarImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
