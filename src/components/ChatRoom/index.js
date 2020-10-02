@@ -8,7 +8,7 @@ const ChatRoom = () => {
   const messageRef = firestore.collection("message");
   const query = messageRef.orderBy("createdAt").limit(25);
   const [messages] = useCollectionData(query, { idField: "id" });
-  console.log(auth);
+
   const sendMessage = async (e) => {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
